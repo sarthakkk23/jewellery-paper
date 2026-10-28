@@ -1,0 +1,816 @@
+{
+ "built": "2026-10-28",
+ "pulse_month": "2026-10",
+ "sources": {
+  "gjepc_sez_booklet": {
+   "name": "GJEPC, Gem & jewellery exports from SEZs (booklet, March 2025), Table 7, p. 34",
+   "url": "https://gjepc.org/"
+  },
+  "gjepc_region_reports": {
+   "name": "GJEPC quarterly and monthly trade reports, region tables",
+   "url": "https://gjepc.org/pdf/market_reports/Gem_Jewellery_Quarterly_Report_Q3_FY2024-25.pdf"
+  },
+  "gjepc_solitaire_oct2026": {
+   "name": "GJEPC Solitaire, export release of 14 October 2026 (April-September 2026)",
+   "url": "https://gjepc.org/solitaire/indias-gem-jewellery-exports-continue-to-grow-rising-9-43-to-us-2-95-billion-in-september-2026/"
+  },
+  "gia_2016": {
+   "name": "Lucas et al. (2016), 'Jaipur, India: The global gem and jewelry power of the pink city', Gems & Gemology 52(4), Table 1",
+   "url": "https://www.gia.edu/gems-gemology/winter-2016-jaipur-india-global-gem-jewelry-power-pink-city"
+  },
+  "comtrade": {
+   "name": "UN Comtrade, US imports by partner, monthly (customs value)",
+   "url": "https://comtradeplus.un.org/"
+  },
+  "us_eo_14329": {
+   "name": "US Executive Order 14329 (Federal Register, 11 August 2025), which took India's rate to 50% from 27 August 2025",
+   "url": "https://www.govinfo.gov/content/pkg/FR-2025-08-11/pdf/2025-15267.pdf"
+  },
+  "us_section_122": {
+   "name": "US Section 122 import surcharge of 10% for 150 days, from 24 February 2026",
+   "url": "https://www.whitehouse.gov/presidential-actions/2026/02/imposing-a-temporary-import-surcharge-to-address-fundamental-international-payments-problems/"
+  },
+  "gemfields": {
+   "name": "Gemfields auction results announcements, 2009-2026",
+   "url": "https://www.gemfieldsgroup.com/"
+  },
+  "drik_panchang": {
+   "name": "Drik Panchang, Hindu marriage dates, location set to Jaipur",
+   "url": "https://www.drikpanchang.com/shubh-dates/shubh-marriage-dates-with-muhurat.html?geoname-id=1269515&year=2026"
+  },
+  "ibja": {
+   "name": "IBJA daily 999 gold and silver rates",
+   "url": "https://ibjarates.com/"
+  },
+  "rajasthan_tourism": {
+   "name": "Rajasthan Tourism Department, annual progress reports 2018-19 to 2025-26 (monthly visits tables)",
+   "url": "https://www.tourism.rajasthan.gov.in/"
+  },
+  "literature": {
+   "name": "My review of every published study, report and article giving a figure for Jaipur's jewellery trade",
+   "url": ""
+  }
+ },
+ "figures": {
+  "c4_sez_gold_pct": {
+   "value": 59.5096,
+   "display": "59.5%",
+   "label": "Arithmetic",
+   "what": "Gold jewellery (plain and studded) as a share of the Jaipur SEZ's gem and jewellery exports",
+   "period": "FY2023-24",
+   "geography": "Jaipur SEZ",
+   "source": "gjepc_sez_booklet",
+   "caveat": "The SEZ only, not all of Jaipur."
+  },
+  "c4_sez_plain_gold_pct": {
+   "value": 46.2207,
+   "display": "46.2%",
+   "label": "Measured",
+   "what": "Plain gold jewellery as a share of the Jaipur SEZ's exports",
+   "period": "FY2023-24",
+   "geography": "Jaipur SEZ",
+   "source": "gjepc_sez_booklet",
+   "caveat": ""
+  },
+  "c4_sez_studded_gold_pct": {
+   "value": 13.2889,
+   "display": "13.3%",
+   "label": "Arithmetic",
+   "what": "Studded gold jewellery as a share of the Jaipur SEZ's exports",
+   "period": "FY2023-24",
+   "geography": "Jaipur SEZ",
+   "source": "gjepc_sez_booklet",
+   "caveat": ""
+  },
+  "c4_sez_silver_pct": {
+   "value": 24.75,
+   "display": "24.8%",
+   "label": "Arithmetic",
+   "what": "Silver jewellery (plain and studded) as a share of the Jaipur SEZ's exports",
+   "period": "FY2023-24",
+   "geography": "Jaipur SEZ",
+   "source": "gjepc_sez_booklet",
+   "caveat": ""
+  },
+  "c4_sez_gemstones_pct": {
+   "value": 10.0,
+   "display": "10%",
+   "label": "Measured",
+   "what": "Worked coloured gemstones as a share of the Jaipur SEZ's exports",
+   "period": "FY2023-24",
+   "geography": "Jaipur SEZ",
+   "source": "gjepc_sez_booklet",
+   "caveat": ""
+  },
+  "n26_gemstones_2014_pct": {
+   "value": 46.0814,
+   "display": "about 46%",
+   "label": "Arithmetic",
+   "what": "Coloured gemstones as a share of Jaipur's gem and jewellery exports",
+   "period": "2014-15",
+   "geography": "Jaipur (city)",
+   "source": "gia_2016",
+   "caveat": "Cut stones only, calculated from GJEPC figures in GIA's Table 1. A different scope from the SEZ figure, so a contrast, not a trend."
+  },
+  "c5_gemstone_share_of_rise_pct": {
+   "value": 0.32,
+   "display": "about 0.3%",
+   "label": "Arithmetic",
+   "what": "India's rise in coloured-gemstone exports as a share of the Rajasthan region's rise",
+   "period": "April-September 2025 against a year earlier",
+   "geography": "Rajasthan region (GJEPC)",
+   "source": "gjepc_region_reports",
+   "caveat": "About, not at most: the gemstone figure is India's net change, so it isn't a ceiling."
+  },
+  "c5_region_rise_pct": {
+   "value": 82.14,
+   "display": "82%",
+   "label": "Arithmetic",
+   "what": "Rise in the Rajasthan region's gem and jewellery exports",
+   "period": "April-September 2025 against a year earlier",
+   "geography": "Rajasthan region (GJEPC)",
+   "source": "gjepc_region_reports",
+   "caveat": ""
+  },
+  "c5_region_rise_usd_m": {
+   "value": 549.87,
+   "display": "US$550 million",
+   "label": "Arithmetic",
+   "what": "Rise in the Rajasthan region's exports, in dollars",
+   "period": "April-September 2025 against a year earlier",
+   "geography": "Rajasthan region (GJEPC)",
+   "source": "gjepc_region_reports",
+   "caveat": ""
+  },
+  "c6_region_share_india_pct": {
+   "value": 8.65,
+   "display": "8.7%",
+   "label": "Arithmetic",
+   "what": "The Rajasthan region's share of India's gem and jewellery exports",
+   "period": "April-September 2025",
+   "geography": "Rajasthan region (GJEPC)",
+   "source": "gjepc_region_reports",
+   "caveat": ""
+  },
+  "n19_studded_gold_pct": {
+   "value": 31.31,
+   "display": "+31%",
+   "label": "Measured",
+   "what": "Change in India's studded gold jewellery exports, in US dollars",
+   "period": "April-September 2026 against a year earlier",
+   "geography": "India",
+   "source": "gjepc_solitaire_oct2026",
+   "caveat": ""
+  },
+  "n19_plain_gold_pct": {
+   "value": -8.81,
+   "display": "−8.8%",
+   "label": "Measured",
+   "what": "Change in India's plain gold jewellery exports, in US dollars",
+   "period": "April-September 2026 against a year earlier",
+   "geography": "India",
+   "source": "gjepc_solitaire_oct2026",
+   "caveat": "In rupees, plain gold rose 0.6%."
+  },
+  "c1_silver_others_before_pct": {
+   "value": 29.02,
+   "display": "29%",
+   "label": "Arithmetic",
+   "what": "Share of US silver-jewellery imports from countries other than India, Thailand and China",
+   "period": "September 2024-January 2025",
+   "geography": "United States",
+   "source": "comtrade",
+   "caveat": ""
+  },
+  "c1_silver_others_during_pct": {
+   "value": 59.7,
+   "display": "60%",
+   "label": "Arithmetic",
+   "what": "Share of US silver-jewellery imports from countries other than India, Thailand and China, during the 50% tariff",
+   "period": "September 2025-January 2026",
+   "geography": "United States",
+   "source": "comtrade",
+   "caveat": ""
+  },
+  "c1_silver_thailand_before_pct": {
+   "value": 33.85,
+   "display": "34%",
+   "label": "Arithmetic",
+   "what": "Thailand's share of US silver-jewellery imports",
+   "period": "September 2024-January 2025",
+   "geography": "United States",
+   "source": "comtrade",
+   "caveat": ""
+  },
+  "c1_silver_thailand_during_pct": {
+   "value": 29.42,
+   "display": "29%",
+   "label": "Arithmetic",
+   "what": "Thailand's share of US silver-jewellery imports, during the 50% tariff",
+   "period": "September 2025-January 2026",
+   "geography": "United States",
+   "source": "comtrade",
+   "caveat": ""
+  },
+  "c2_gold_india_before_pct": {
+   "value": 26.27,
+   "display": "26.3%",
+   "label": "Arithmetic",
+   "what": "India's share of US gold-jewellery imports",
+   "period": "September 2024-January 2025",
+   "geography": "United States",
+   "source": "comtrade",
+   "caveat": "HS 711319 also includes platinum jewellery."
+  },
+  "c2_gold_india_during_pct": {
+   "value": 4.39,
+   "display": "4.4%",
+   "label": "Arithmetic",
+   "what": "India's share of US gold-jewellery imports, during the 50% tariff",
+   "period": "September 2025-January 2026",
+   "geography": "United States",
+   "source": "comtrade",
+   "caveat": ""
+  },
+  "c2_gold_india_feb26_pct": {
+   "value": 3.488,
+   "display": "3.5%",
+   "label": "Arithmetic",
+   "what": "India's share of US gold-jewellery imports",
+   "period": "February 2026",
+   "geography": "United States",
+   "source": "comtrade",
+   "caveat": ""
+  },
+  "c2_gold_india_mar26_pct": {
+   "value": 11.239,
+   "display": "11.2%",
+   "label": "Arithmetic",
+   "what": "India's share of US gold-jewellery imports, the first full month at the same 10% as nearly everyone else",
+   "period": "March 2026",
+   "geography": "United States",
+   "source": "comtrade",
+   "caveat": "The rise came when India's rate fell to the level most countries paid, not from a trade deal."
+  },
+  "c10_cq_auctions_since_2022": {
+   "value": 9.0,
+   "display": "9",
+   "label": "Measured",
+   "what": "Commercial-quality emerald auctions held by the Zambian mine since 2022",
+   "period": "2022-2026",
+   "geography": "Kagem mine, Zambia",
+   "source": "gemfields",
+   "caveat": ""
+  },
+  "c10_cq_auctions_jaipur": {
+   "value": 9.0,
+   "display": "9",
+   "label": "Measured",
+   "what": "Of those, auctions viewed only in Jaipur",
+   "period": "2022-2026",
+   "geography": "Kagem mine, Zambia",
+   "source": "gemfields",
+   "caveat": "Viewed, not sold: bidding is online. Higher-quality rough is viewed in Bangkok."
+  },
+  "c9_cq_usd_ct": {
+   "value": 9.72,
+   "display": "US$9.72",
+   "label": "Measured",
+   "what": "Average price per carat, commercial-quality Zambian emerald rough, latest auction",
+   "period": "August-September 2026",
+   "geography": "Kagem mine, Zambia",
+   "source": "gemfields",
+   "caveat": "Gemfields warns results are not always directly comparable between auctions."
+  },
+  "c9_cq_two_year_pct": {
+   "value": 117.4,
+   "display": "117%",
+   "label": "Arithmetic",
+   "what": "Rise in that price over two years",
+   "period": "August 2024 to August-September 2026",
+   "geography": "Kagem mine, Zambia",
+   "source": "gemfields",
+   "caveat": "The 2024 auction sold 28 of 46 lots. Highest commercial-quality average in Gemfields' record, which began in 2009."
+  },
+  "c18_novdec_2025_dates": {
+   "value": 17.0,
+   "display": "17",
+   "label": "Measured",
+   "what": "Wedding dates in November-December 2025",
+   "period": "November-December 2025",
+   "geography": "Jaipur (Drik Panchang)",
+   "source": "drik_panchang",
+   "caveat": ""
+  },
+  "c18_novdec_2026_dates": {
+   "value": 11.0,
+   "display": "11",
+   "label": "Measured",
+   "what": "Wedding dates in November-December 2026",
+   "period": "November-December 2026",
+   "geography": "Jaipur (Drik Panchang)",
+   "source": "drik_panchang",
+   "caveat": "Published lists differ: others count 17 to 22 dates for November-December 2025."
+  },
+  "c18_janfeb_2026_dates": {
+   "value": 12.0,
+   "display": "12",
+   "label": "Measured",
+   "what": "Wedding dates in January-February 2026",
+   "period": "January-February 2026",
+   "geography": "Jaipur (Drik Panchang)",
+   "source": "drik_panchang",
+   "caveat": ""
+  },
+  "c18_janfeb_2027_dates": {
+   "value": 22.0,
+   "display": "22",
+   "label": "Measured",
+   "what": "Wedding dates in January-February 2027",
+   "period": "January-February 2027",
+   "geography": "Jaipur (Drik Panchang)",
+   "source": "drik_panchang",
+   "caveat": ""
+  },
+  "c18_novdec_change_pct": {
+   "value": -35.2941,
+   "display": "−35%",
+   "label": "Arithmetic",
+   "what": "Change in November-December wedding dates, 2026 against 2025",
+   "period": "November-December",
+   "geography": "Jaipur (Drik Panchang)",
+   "source": "drik_panchang",
+   "caveat": ""
+  },
+  "c18_janfeb_change_pct": {
+   "value": 83.3333,
+   "display": "+83%",
+   "label": "Arithmetic",
+   "what": "Change in January-February wedding dates, 2027 against 2026",
+   "period": "January-February",
+   "geography": "Jaipur (Drik Panchang)",
+   "source": "drik_panchang",
+   "caveat": ""
+  },
+  "c20_rate_2023": {
+   "value": 60445.0,
+   "display": "₹60,445",
+   "label": "Measured",
+   "what": "IBJA 999 gold, per 10 g, Dhanteras 2023",
+   "period": "10 November 2023 (AM)",
+   "geography": "India (IBJA 999)",
+   "source": "ibja",
+   "caveat": ""
+  },
+  "c20_rate_2025": {
+   "value": 129584.0,
+   "display": "₹1,29,584",
+   "label": "Measured",
+   "what": "IBJA 999 gold, per 10 g, the last rate before Dhanteras 2025",
+   "period": "17 October 2025 (PM)",
+   "geography": "India (IBJA 999)",
+   "source": "ibja",
+   "caveat": ""
+  },
+  "c20_grams_2023": {
+   "value": 16.544,
+   "display": "16.5 g",
+   "label": "Arithmetic",
+   "what": "Grams of 24-carat gold that ₹1 lakh bought at Dhanteras 2023",
+   "period": "Dhanteras 2023 (10 November)",
+   "geography": "India (IBJA 999)",
+   "source": "ibja",
+   "caveat": "IBJA 999 rate, before GST and making charges."
+  },
+  "c20_grams_2025": {
+   "value": 7.717,
+   "display": "7.7 g",
+   "label": "Arithmetic",
+   "what": "Grams of 24-carat gold that ₹1 lakh bought at Dhanteras 2025",
+   "period": "Dhanteras 2025 (18 October; the Friday close before)",
+   "geography": "India (IBJA 999)",
+   "source": "ibja",
+   "caveat": "IBJA 999 rate, before GST and making charges."
+  },
+  "c20_less_gold_pct": {
+   "value": 53.3546,
+   "display": "53%",
+   "label": "Arithmetic",
+   "what": "How much less gold ₹1 lakh bought, Dhanteras 2025 against Dhanteras 2023",
+   "period": "Dhanteras 2023 to 2025",
+   "geography": "India (IBJA 999)",
+   "source": "ibja",
+   "caveat": ""
+  },
+  "c20_gold_rise_pct": {
+   "value": 114.3833,
+   "display": "114%",
+   "label": "Arithmetic",
+   "what": "Rise in the gold price, Dhanteras 2023 to Dhanteras 2025",
+   "period": "Dhanteras 2023 to 2025",
+   "geography": "India (IBJA 999)",
+   "source": "ibja",
+   "caveat": ""
+  },
+  "n8_nov_foreign_share_pct": {
+   "value": 14.3326,
+   "display": "14.3%",
+   "label": "Arithmetic",
+   "what": "November's share of Rajasthan's foreign tourist visits",
+   "period": "2023-2025",
+   "geography": "Rajasthan",
+   "source": "rajasthan_tourism",
+   "caveat": "Visits, not tourists: one person seeing two cities counts twice. State figures, not Jaipur's."
+  },
+  "n8_jun_foreign_share_pct": {
+   "value": 2.3988,
+   "display": "2.4%",
+   "label": "Arithmetic",
+   "what": "June's share of Rajasthan's foreign tourist visits",
+   "period": "2023-2025",
+   "geography": "Rajasthan",
+   "source": "rajasthan_tourism",
+   "caveat": ""
+  },
+  "n8_winter_foreign_share_2025_pct": {
+   "value": 64.0158,
+   "display": "64%",
+   "label": "Arithmetic",
+   "what": "Share of Rajasthan's 2025 foreign visits in January-March and November-December",
+   "period": "2025",
+   "geography": "Rajasthan",
+   "source": "rajasthan_tourism",
+   "caveat": ""
+  },
+  "c21_published_figures": {
+   "value": 27.0,
+   "display": "27",
+   "label": "Arithmetic",
+   "what": "Published figures I found for how many people work in Jaipur's jewellery trade, or how many units it has",
+   "period": "all years to October 2026",
+   "geography": "Jaipur",
+   "source": "literature",
+   "caveat": "\"For Jaipur\" and \"that I found\": the 2013 Economic Census is a direct count, but at state level."
+  },
+  "c21_direct_counts": {
+   "value": 0.0,
+   "display": "None",
+   "label": "Arithmetic",
+   "what": "Of those, figures that are a direct count by the source",
+   "period": "all years to October 2026",
+   "geography": "Jaipur",
+   "source": "literature",
+   "caveat": ""
+  },
+  "lit_employment_n": {
+   "value": 12.0,
+   "display": "12",
+   "label": "Arithmetic",
+   "what": "Published figures on employment in Jaipur's jewellery trade",
+   "period": "all years to October 2026",
+   "geography": "Jaipur",
+   "source": "literature",
+   "caveat": ""
+  },
+  "lit_units_n": {
+   "value": 15.0,
+   "display": "15",
+   "label": "Arithmetic",
+   "what": "Published figures on the number of units in Jaipur's jewellery trade",
+   "period": "all years to October 2026",
+   "geography": "Jaipur",
+   "source": "literature",
+   "caveat": ""
+  },
+  "c1_tariff_peak_pct": {
+   "value": 50.0,
+   "display": "50%",
+   "label": "Measured",
+   "what": "US tariff on Indian jewellery at its peak",
+   "period": "27 August 2025 to 6 February 2026",
+   "geography": "United States",
+   "source": "us_eo_14329",
+   "caveat": ""
+  },
+  "c2_march_rate_pct": {
+   "value": 10.0,
+   "display": "10%",
+   "label": "Measured",
+   "what": "US import surcharge on Indian jewellery from 24 February 2026, the same as nearly every other country",
+   "period": "24 February to 23 July 2026",
+   "geography": "United States",
+   "source": "us_section_122",
+   "caveat": ""
+  },
+  "n8_nov_over_jun": {
+   "value": 5.975,
+   "display": "about 6 times",
+   "label": "Arithmetic",
+   "what": "November's foreign visits as a multiple of June's",
+   "period": "2023-2025",
+   "geography": "Rajasthan",
+   "source": "rajasthan_tourism",
+   "caveat": ""
+  },
+  "c9_cq_2024_usd_ct": {
+   "value": 4.47,
+   "display": "US$4.47",
+   "label": "Measured",
+   "what": "Average price per carat, commercial-quality Zambian emerald rough, the auction two years before the latest",
+   "period": "August 2024",
+   "geography": "Kagem mine, Zambia",
+   "source": "gemfields",
+   "caveat": ""
+  }
+ },
+ "pulse": {
+  "us_stones_7103_india_share_latest_month": {
+   "value": 20.4,
+   "display": "20.4%",
+   "unit": "%",
+   "period": "2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world, one month"
+  },
+  "us_stones_7103_india_share_3m": {
+   "value": 12.8,
+   "display": "12.8%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world, value over the three latest months"
+  },
+  "us_stones_7103_thailand_share_3m": {
+   "value": 16.1,
+   "display": "16.1%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Thailand / world, value over the three latest months"
+  },
+  "us_stones_7103_china_share_3m": {
+   "value": 0.5,
+   "display": "0.5%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "China / world, value over the three latest months"
+  },
+  "us_stones_7103_india_share_3m_year_earlier": {
+   "value": 23.3,
+   "display": "23.3%",
+   "unit": "%",
+   "period": "same three months a year earlier",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world"
+  },
+  "us_stones_7103_india_value_change_3m_yoy": {
+   "value": 84.8,
+   "display": "+84.8%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Three latest months against the same months a year earlier"
+  },
+  "us_stones_7103_world_value_change_3m_yoy": {
+   "value": 237.7,
+   "display": "+237.7%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Three latest months against the same months a year earlier"
+  },
+  "us_silver_711311_india_share_latest_month": {
+   "value": 10.8,
+   "display": "10.8%",
+   "unit": "%",
+   "period": "2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world, one month"
+  },
+  "us_silver_711311_india_share_3m": {
+   "value": 10.3,
+   "display": "10.3%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world, value over the three latest months"
+  },
+  "us_silver_711311_thailand_share_3m": {
+   "value": 24.6,
+   "display": "24.6%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Thailand / world, value over the three latest months"
+  },
+  "us_silver_711311_china_share_3m": {
+   "value": 2.3,
+   "display": "2.3%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "China / world, value over the three latest months"
+  },
+  "us_silver_711311_india_share_3m_year_earlier": {
+   "value": 17.6,
+   "display": "17.6%",
+   "unit": "%",
+   "period": "same three months a year earlier",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world"
+  },
+  "us_silver_711311_india_value_change_3m_yoy": {
+   "value": -21.4,
+   "display": "−21.4%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Three latest months against the same months a year earlier"
+  },
+  "us_silver_711311_world_value_change_3m_yoy": {
+   "value": 34.9,
+   "display": "+34.9%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Three latest months against the same months a year earlier"
+  },
+  "us_gold_711319_india_share_latest_month": {
+   "value": 13.6,
+   "display": "13.6%",
+   "unit": "%",
+   "period": "2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world, one month"
+  },
+  "us_gold_711319_india_share_3m": {
+   "value": 12.1,
+   "display": "12.1%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world, value over the three latest months"
+  },
+  "us_gold_711319_thailand_share_3m": {
+   "value": 6.6,
+   "display": "6.6%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Thailand / world, value over the three latest months"
+  },
+  "us_gold_711319_china_share_3m": {
+   "value": 1.5,
+   "display": "1.5%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "China / world, value over the three latest months"
+  },
+  "us_gold_711319_india_share_3m_year_earlier": {
+   "value": 22.3,
+   "display": "22.3%",
+   "unit": "%",
+   "period": "same three months a year earlier",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world"
+  },
+  "us_gold_711319_india_value_change_3m_yoy": {
+   "value": -54.6,
+   "display": "−54.6%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Three latest months against the same months a year earlier"
+  },
+  "us_gold_711319_world_value_change_3m_yoy": {
+   "value": -16.3,
+   "display": "−16.3%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Three latest months against the same months a year earlier"
+  },
+  "us_imitation_7117_india_share_latest_month": {
+   "value": 2.7,
+   "display": "2.7%",
+   "unit": "%",
+   "period": "2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world, one month"
+  },
+  "us_imitation_7117_india_share_3m": {
+   "value": 2.8,
+   "display": "2.8%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world, value over the three latest months"
+  },
+  "us_imitation_7117_thailand_share_3m": {
+   "value": 5.5,
+   "display": "5.5%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Thailand / world, value over the three latest months"
+  },
+  "us_imitation_7117_china_share_3m": {
+   "value": 52.9,
+   "display": "52.9%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "China / world, value over the three latest months"
+  },
+  "us_imitation_7117_india_share_3m_year_earlier": {
+   "value": 2.6,
+   "display": "2.6%",
+   "unit": "%",
+   "period": "same three months a year earlier",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "India / world"
+  },
+  "us_imitation_7117_india_value_change_3m_yoy": {
+   "value": 14.5,
+   "display": "+14.5%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Three latest months against the same months a year earlier"
+  },
+  "us_imitation_7117_world_value_change_3m_yoy": {
+   "value": 7.4,
+   "display": "+7.4%",
+   "unit": "%",
+   "period": "2026-05 to 2026-07",
+   "source": "UN Comtrade (US imports, customs value)",
+   "method": "Three latest months against the same months a year earlier"
+  },
+  "gold999_latest_close": {
+   "value": 141630.0,
+   "display": "₹1,41,630 per 10 g",
+   "unit": "Rs per 10 g",
+   "period": "2026-10-23",
+   "source": "IBJA (ibjarates.com)",
+   "method": "Latest PM rate"
+  },
+  "silver999_latest_close": {
+   "value": 194415.0,
+   "display": "₹1,94,415 per kg",
+   "unit": "Rs per kg",
+   "period": "2026-10-23",
+   "source": "IBJA (ibjarates.com)",
+   "method": "Latest PM rate"
+  },
+  "gold999_month_avg": {
+   "value": 151926.0,
+   "display": "₹1,51,926 per 10 g",
+   "unit": "Rs per 10 g",
+   "period": "2026-09",
+   "source": "IBJA (ibjarates.com)",
+   "method": "Mean of 21 PM rates"
+  },
+  "gold999_month_avg_change_yoy": {
+   "value": 38.1,
+   "display": "+38.1%",
+   "unit": "%",
+   "period": "2026-09 against 2025-09",
+   "source": "IBJA (this year); RBI Handbook gold 995, converted to 999 (a year earlier)",
+   "method": "Month average against the same month a year earlier"
+  },
+  "silver999_month_avg": {
+   "value": 230623.0,
+   "display": "₹2,30,623 per kg",
+   "unit": "Rs per kg",
+   "period": "2026-09",
+   "source": "IBJA (ibjarates.com)",
+   "method": "Mean of 21 PM rates"
+  },
+  "silver999_month_avg_change_yoy": {
+   "value": 78.4,
+   "display": "+78.4%",
+   "unit": "%",
+   "period": "2026-09 against 2025-09",
+   "source": "IBJA (this year); RBI Handbook gold 995, converted to 999 (a year earlier)",
+   "method": "Month average against the same month a year earlier"
+  },
+  "wedding_dates_next_3_months": {
+   "value": 20.0,
+   "display": "20 dates",
+   "unit": "dates",
+   "period": "2026-11 to 2027-01",
+   "source": "Drik Panchang, set to Jaipur",
+   "method": "Count of listed dates"
+  },
+  "wedding_dates_next_3_months_year_earlier": {
+   "value": 17.0,
+   "display": "17 dates",
+   "unit": "dates",
+   "period": "2025-11 to 2026-01",
+   "source": "Drik Panchang, set to Jaipur",
+   "method": "Same months a year earlier"
+  }
+ }
+}

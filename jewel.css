@@ -1,0 +1,92 @@
+/* Jaipur Jewellery Index: the few additions to the café site's stylesheet (v2.css, shared as is).
+   Mostly the playbook pages' own content, set in the café playbook's style. */
+.jw-obj { display: flex; align-items: center; background: var(--blush); }
+.jw-obj-in { width: 100%; padding: clamp(24px, 4vw, 56px); }
+.jw-obj-note { font-size: var(--s-small); color: var(--soft); margin-top: 14px; max-width: 44ch; }
+.jw-open { padding-top: clamp(40px, 6vw, 88px); }
+.jw-tight { padding-top: 24px; }
+.jw-next { margin-top: 40px; }
+.jw-census { padding-top: clamp(72px, 9vw, 120px); } .jw-census h2 { margin-bottom: 20px; }
+.fd-src { font-weight: 600; }
+.fd-how .lab { font-size: .75em; text-transform: uppercase; letter-spacing: .06em; background: var(--stone); padding: 1px 6px; }
+.jw-pv { font-size: var(--s-head) !important; letter-spacing: -0.03em; }
+.jw-srcs { padding-left: 20px; display: grid; gap: 8px; max-width: 70ch; }
+.ph-k { font-size: var(--s-small); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+
+/* playbook pages: the content as written, in the café playbook's look */
+.jw-pb { padding: 0 var(--m) clamp(48px, 6vw, 96px); }
+.jw-pb .pb-intro, .jw-pb .pb-section { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px clamp(32px, 5vw, 88px); align-items: start; }
+.jw-pb .pb-body { grid-column: 2; min-width: 0; }
+.jw-pb .pb-section > h2 { grid-column: 1; }
+.jw-pb .pb-intro { margin-top: clamp(32px, 4vw, 56px); }
+.jw-pb .pb-intro .pb-lede { margin: 0; }
+.jw-pb .pb-intro .figure-box, .jw-pb .pb-body .calc { margin: 0; }
+.jw-pb .calc { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 900px) { .jw-pb .pb-intro, .jw-pb .pb-section { grid-template-columns: 1fr; } .jw-pb .pb-body, .jw-pb .pb-section > h2 { grid-column: 1; } }
+.jw-pb .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.jw-pb .pb-lede { font-size: var(--s-lead); line-height: 1.3; font-style: italic; color: var(--soft); max-width: 46ch; margin: clamp(32px, 4vw, 56px) 0; }
+.jw-pb .figure-box { background: var(--blush); padding: clamp(20px, 3vw, 36px); margin: 0 calc(-1 * var(--m)) 0; padding-left: var(--m); padding-right: var(--m); }
+.jw-pb .pb-section { margin-top: clamp(48px, 6vw, 88px); }
+.jw-pb .pb-section > h2 { font-size: var(--s-head); margin-bottom: 18px; }
+.jw-pb h3, .jw-pb .step-h { font-size: var(--s-lead); margin: 22px 0 8px; }
+.jw-pb p, .jw-pb li { max-width: 68ch; }
+.jw-pb ul, .jw-pb ol { padding-left: 20px; display: grid; gap: 6px; }
+.jw-pb details.disc { margin-top: 10px; }
+.jw-pb details.disc > summary { cursor: pointer; font-weight: 600; list-style: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
+.jw-pb details.disc > summary::-webkit-details-marker { display: none; }
+.jw-pb details.disc > summary::after { content: "+"; font-weight: 400; font-size: 1.2em; }
+.jw-pb details.disc[open] > summary::after { content: "−"; }
+.jw-pb .disc-hint { font-weight: 400; color: var(--soft); }
+.jw-pb .tag { font-size: .72em; text-transform: uppercase; letter-spacing: .06em; color: var(--soft); white-space: normal; display: inline; padding: 0; margin: 0; }
+.jw-pb .tbl-wrap { overflow-x: auto; margin: 12px 0; }
+.jw-pb table { border-collapse: collapse; font-size: var(--s-small); font-variant-numeric: tabular-nums; }
+.jw-pb th, .jw-pb td { text-align: left; padding: 8px 14px 8px 0; vertical-align: top; }
+.jw-pb thead th { border-bottom: 2px solid var(--ink); }
+.jw-pb tbody tr:nth-child(even) { background: var(--stone); }
+.jw-pb .calc { background: var(--stone); padding: clamp(20px, 3vw, 36px); margin: 0 calc(-1 * var(--m)); padding-left: var(--m); padding-right: var(--m); }
+.jw-pb .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 20px; margin: 14px 0; }
+@media (max-width: 600px) { .jw-pb .fields { grid-template-columns: 1fr; } }
+.jw-pb .field { display: grid; gap: 6px; } .jw-pb .field label { font-weight: 600; font-size: var(--s-small); }
+.jw-pb .field .hint { font-size: var(--s-small); color: var(--soft); }
+.jw-pb input[type="text"], .jw-pb input[type="number"] { font: inherit; border: 0; background: var(--paper); min-height: 48px; padding: 0 12px; width: 100%; }
+.jw-pb input[type="range"] { width: 100%; accent-color: var(--red); }
+.jw-pb .with-unit { position: relative; display: flex; align-items: center; }
+.jw-pb .with-unit .pre { position: absolute; left: 12px; color: var(--soft); } .jw-pb .with-unit .pre + input { padding-left: 28px; }
+.jw-pb .with-unit .unit { position: absolute; right: 12px; color: var(--soft); }
+.jw-pb .range-row { display: flex; gap: 12px; align-items: center; }
+.jw-pb .out { font-size: var(--s-lead); line-height: 1.3; margin: 8px 0; } .jw-pb .out.is-quiet { font-size: var(--s-body); color: var(--soft); }
+.jw-pb .note { background: var(--blush); padding: 8px 12px; font-size: var(--s-small); }
+.jw-pb .mini-btn, .jw-pb .seg button { font: inherit; font-size: var(--s-small); border: 0; background: var(--paper); min-height: 40px; padding: 0 12px; cursor: pointer; }
+.jw-pb .seg { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.jw-pb .seg button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.jw-pb .pager { display: flex; justify-content: space-between; gap: 12px; margin-top: 48px; }
+.jw-pbchart { margin: 18px 0 8px; max-width: 640px; }
+.jw-ft { color: var(--soft); }
+/* the playbook calculators' own pieces (from the old stylesheet; the season bars are scoped so the header's .bar never applies) */
+.js .jw-pb .calc-nojs { display: none; }
+.jw-pb a, .jw-pb code { overflow-wrap: anywhere; }
+.jw-pb .months { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; grid-column: 1 / -1; }
+@media (min-width: 576px) { .jw-pb .months { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+.jw-pb .months input[type="text"] { min-height: 42px; padding: 0 8px; }
+.jw-pb .season-chart { margin-top: 16px; background: var(--paper); padding: 14px 10px 10px; }
+.jw-pb .season-chart .cap { font-size: var(--s-small); color: var(--soft); margin: 0 0 10px; }
+.jw-pb .season-chart .bars { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: end; height: 11rem; gap: 2px; }
+.jw-pb .season-chart .bar { position: static; inset: auto; z-index: auto; min-height: 0; font: inherit; border: 0; background: none; padding: 0; margin: 0; cursor: pointer; height: 100%; gap: 0;
+  display: flex; flex-direction: column; justify-content: flex-end; align-items: center; backdrop-filter: none; box-shadow: none; }
+.jw-pb .season-chart .bar .col { width: min(70%, 24px); background: var(--pink); transition: height .6s var(--ease), background-color .3s var(--ease); }
+.jw-pb .season-chart .bar.in-window .col { background: var(--red); }
+.jw-pb .season-chart .bar:hover .col { background: var(--red); }
+.jw-pb .months-axis { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 2px; margin-top: 4px; font-size: .78rem; color: var(--soft); text-align: center; }
+.jw-pb .months-axis span { position: relative; padding-top: 2px; white-space: nowrap; }
+.jw-pb .months-axis .is-order, .jw-pb .months-axis .is-sel { color: var(--ink); font-weight: 700; }
+.jw-pb .months-axis .is-order::before { content: ""; position: absolute; left: 50%; top: -3px; width: 7px; height: 7px; margin-left: -3.5px; border-radius: 50%; background: var(--ink); }
+@media (max-width: 480px) { .jw-pb .months-axis { font-size: .62rem; letter-spacing: -0.02em; } }
+.jw-pb .chart-key { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: var(--s-small); color: var(--soft); padding: 10px 0 0; margin: 0; list-style: none; }
+.jw-pb .chart-key li { display: inline-flex; align-items: center; gap: 6px; }
+.jw-pb .sw { width: 12px; height: 12px; flex: none; }
+.jw-pb .chart-key .k-win { background: var(--red); } .jw-pb .chart-key .k-other { background: var(--pink); } .jw-pb .chart-key .k-order { background: var(--ink); border-radius: 50%; }
+.jw-pb .markets { display: grid; gap: 10px; grid-column: 1 / -1; }
+.jw-pb .market { display: grid; grid-template-columns: minmax(0, 1fr) 6.5rem; gap: 8px; }
+.jw-pb .market input { font: inherit; border: 0; background: var(--paper); min-height: 44px; padding: 0 10px; width: 100%; }
+.jw-pb .calc .tbl tr.is-current td, .jw-pb .calc .tbl tr.is-current th { background: var(--blush); }
+@media (prefers-reduced-motion: reduce) { .jw-pb .season-chart .bar .col { transition: none; } }
