@@ -9,7 +9,10 @@
 .jw-census { padding-top: clamp(72px, 9vw, 120px); } .jw-census h2 { margin-bottom: 20px; }
 .fd-src { font-weight: 600; }
 .fd-how .lab { font-size: .75em; text-transform: uppercase; letter-spacing: .06em; background: var(--stone); padding: 1px 6px; }
-.jw-pv { font-size: var(--s-head) !important; letter-spacing: -0.03em; }
+.jw-pv { font-size: clamp(1.9rem, 1.3rem + 2vw, 3.25rem) !important; line-height: 1; letter-spacing: -0.03em; white-space: nowrap; }
+.jw-pv small { font-size: .42em; letter-spacing: 0; margin-left: .3em; }
+.jw-month .rule-row { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 16px clamp(24px, 4vw, 64px); align-items: center; }
+@media (max-width: 760px) { .jw-month .rule-row { grid-template-columns: 1fr; } }
 .jw-srcs { padding-left: 20px; display: grid; gap: 8px; max-width: 70ch; }
 .ph-k { font-size: var(--s-small); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
 
