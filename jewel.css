@@ -1,4 +1,4 @@
-/* Jaipur Jewellery Index: the few additions to the café site's stylesheet (v2.css, shared as is).
+/* The Jewellery Paper: the few additions to the café site's stylesheet (v2.css, shared as is).
    Mostly the playbook pages' own content, set in the café playbook's style. */
 .jw-obj { display: flex; align-items: center; background: var(--blush); }
 .jw-obj-in { width: 100%; padding: clamp(24px, 4vw, 56px); }

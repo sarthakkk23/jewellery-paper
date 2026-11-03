@@ -1,6 +1,6 @@
 /* How the methods work: tap a method, read one plain sentence, and play with a small example.
    Every example uses invented numbers, labelled as such; none of them is data from the site.
-   Shared by the Café Index (Method page) and the Jewellery Index (How I know). */
+   Shared by The Café Paper (Method page) and The Jewellery Paper (How I know). */
 (() => {
   const root = document.querySelector("[data-explain]");
   if (!root) return;

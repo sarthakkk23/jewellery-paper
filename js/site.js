@@ -1,4 +1,4 @@
-/* Jaipur Jewellery Index: fills every figure from figures.json and adds the small interactions.
+/* The Jewellery Paper: fills every figure from figures.json and adds the small interactions.
    All text is in the HTML; this file only fills numbers and opens and closes layers.
    Markup contract (for the build that will later write figures into the HTML):
      <span class="fig" data-fig="ID">{{ID}}</span>        ID = figures key, "pulse.KEY" or "pulse_month"

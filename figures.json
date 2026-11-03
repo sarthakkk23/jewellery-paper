@@ -1,6 +1,6 @@
 {
- "built": "2026-11-01",
- "pulse_month": "2026-10",
+ "built": "2026-11-03",
+ "pulse_month": "2026-11",
  "sources": {
   "gjepc_sez_booklet": {
    "name": "GJEPC, Gem & jewellery exports from SEZs (booklet, March 2025), Table 7, p. 34",
@@ -525,290 +525,290 @@
  },
  "pulse": {
   "us_stones_7103_india_share_latest_month": {
-   "value": 20.4,
-   "display": "20.4%",
+   "value": 20.3,
+   "display": "20.3%",
    "unit": "%",
-   "period": "2026-07",
+   "period": "2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world, one month"
   },
   "us_stones_7103_india_share_3m": {
-   "value": 12.8,
-   "display": "12.8%",
+   "value": 17.9,
+   "display": "17.9%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world, value over the three latest months"
   },
   "us_stones_7103_thailand_share_3m": {
-   "value": 16.1,
-   "display": "16.1%",
+   "value": 21.6,
+   "display": "21.6%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Thailand / world, value over the three latest months"
   },
   "us_stones_7103_china_share_3m": {
-   "value": 0.5,
-   "display": "0.5%",
+   "value": 2.4,
+   "display": "2.4%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "China / world, value over the three latest months"
   },
   "us_stones_7103_india_share_3m_year_earlier": {
-   "value": 23.3,
-   "display": "23.3%",
+   "value": 17.8,
+   "display": "17.8%",
    "unit": "%",
    "period": "same three months a year earlier",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world"
   },
   "us_stones_7103_india_value_change_3m_yoy": {
-   "value": 84.8,
-   "display": "+84.8%",
+   "value": 18.9,
+   "display": "+18.9%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Three latest months against the same months a year earlier"
   },
   "us_stones_7103_world_value_change_3m_yoy": {
-   "value": 237.7,
-   "display": "+237.7%",
+   "value": 17.9,
+   "display": "+17.9%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Three latest months against the same months a year earlier"
   },
   "us_silver_711311_india_share_latest_month": {
-   "value": 10.8,
-   "display": "10.8%",
+   "value": 11.8,
+   "display": "11.8%",
    "unit": "%",
-   "period": "2026-07",
+   "period": "2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world, one month"
   },
   "us_silver_711311_india_share_3m": {
-   "value": 10.3,
-   "display": "10.3%",
+   "value": 11.3,
+   "display": "11.3%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world, value over the three latest months"
   },
   "us_silver_711311_thailand_share_3m": {
-   "value": 24.6,
-   "display": "24.6%",
+   "value": 26.9,
+   "display": "26.9%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Thailand / world, value over the three latest months"
   },
   "us_silver_711311_china_share_3m": {
-   "value": 2.3,
-   "display": "2.3%",
+   "value": 2.7,
+   "display": "2.7%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "China / world, value over the three latest months"
   },
   "us_silver_711311_india_share_3m_year_earlier": {
-   "value": 17.6,
-   "display": "17.6%",
+   "value": 18.0,
+   "display": "18.0%",
    "unit": "%",
    "period": "same three months a year earlier",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world"
   },
   "us_silver_711311_india_value_change_3m_yoy": {
-   "value": -21.4,
-   "display": "−21.4%",
+   "value": -22.2,
+   "display": "−22.2%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Three latest months against the same months a year earlier"
   },
   "us_silver_711311_world_value_change_3m_yoy": {
-   "value": 34.9,
-   "display": "+34.9%",
+   "value": 24.1,
+   "display": "+24.1%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Three latest months against the same months a year earlier"
   },
   "us_gold_711319_india_share_latest_month": {
-   "value": 13.6,
-   "display": "13.6%",
+   "value": 15.1,
+   "display": "15.1%",
    "unit": "%",
-   "period": "2026-07",
+   "period": "2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world, one month"
   },
   "us_gold_711319_india_share_3m": {
-   "value": 12.1,
-   "display": "12.1%",
+   "value": 13.0,
+   "display": "13.0%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world, value over the three latest months"
   },
   "us_gold_711319_thailand_share_3m": {
-   "value": 6.6,
-   "display": "6.6%",
+   "value": 7.0,
+   "display": "7.0%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Thailand / world, value over the three latest months"
   },
   "us_gold_711319_china_share_3m": {
-   "value": 1.5,
-   "display": "1.5%",
+   "value": 1.8,
+   "display": "1.8%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "China / world, value over the three latest months"
   },
   "us_gold_711319_india_share_3m_year_earlier": {
-   "value": 22.3,
-   "display": "22.3%",
+   "value": 25.1,
+   "display": "25.1%",
    "unit": "%",
    "period": "same three months a year earlier",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world"
   },
   "us_gold_711319_india_value_change_3m_yoy": {
-   "value": -54.6,
-   "display": "−54.6%",
+   "value": -57.7,
+   "display": "−57.7%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Three latest months against the same months a year earlier"
   },
   "us_gold_711319_world_value_change_3m_yoy": {
-   "value": -16.3,
-   "display": "−16.3%",
+   "value": -18.4,
+   "display": "−18.4%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Three latest months against the same months a year earlier"
   },
   "us_imitation_7117_india_share_latest_month": {
-   "value": 2.7,
-   "display": "2.7%",
+   "value": 2.3,
+   "display": "2.3%",
    "unit": "%",
-   "period": "2026-07",
+   "period": "2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world, one month"
   },
   "us_imitation_7117_india_share_3m": {
-   "value": 2.8,
-   "display": "2.8%",
+   "value": 2.7,
+   "display": "2.7%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world, value over the three latest months"
   },
   "us_imitation_7117_thailand_share_3m": {
-   "value": 5.5,
-   "display": "5.5%",
+   "value": 5.6,
+   "display": "5.6%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Thailand / world, value over the three latest months"
   },
   "us_imitation_7117_china_share_3m": {
-   "value": 52.9,
-   "display": "52.9%",
+   "value": 55.3,
+   "display": "55.3%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "China / world, value over the three latest months"
   },
   "us_imitation_7117_india_share_3m_year_earlier": {
-   "value": 2.6,
-   "display": "2.6%",
+   "value": 2.4,
+   "display": "2.4%",
    "unit": "%",
    "period": "same three months a year earlier",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "India / world"
   },
   "us_imitation_7117_india_value_change_3m_yoy": {
-   "value": 14.5,
-   "display": "+14.5%",
+   "value": 22.5,
+   "display": "+22.5%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Three latest months against the same months a year earlier"
   },
   "us_imitation_7117_world_value_change_3m_yoy": {
-   "value": 7.4,
-   "display": "+7.4%",
+   "value": 6.4,
+   "display": "+6.4%",
    "unit": "%",
-   "period": "2026-05 to 2026-07",
+   "period": "2026-06 to 2026-08",
    "source": "UN Comtrade (US imports, customs value)",
    "method": "Three latest months against the same months a year earlier"
   },
   "gold999_latest_close": {
-   "value": 141630.0,
-   "display": "₹1,41,630 per 10 g",
+   "value": 140054.0,
+   "display": "₹1,40,054 per 10 g",
    "unit": "Rs per 10 g",
-   "period": "2026-10-23",
+   "period": "2026-10-30",
    "source": "IBJA (ibjarates.com)",
    "method": "Latest PM rate"
   },
   "silver999_latest_close": {
-   "value": 194415.0,
-   "display": "₹1,94,415 per kg",
+   "value": 181344.0,
+   "display": "₹1,81,344 per kg",
    "unit": "Rs per kg",
-   "period": "2026-10-23",
+   "period": "2026-10-30",
    "source": "IBJA (ibjarates.com)",
    "method": "Latest PM rate"
   },
   "gold999_month_avg": {
-   "value": 151926.0,
-   "display": "₹1,51,926 per 10 g",
+   "value": 145315.0,
+   "display": "₹1,45,315 per 10 g",
    "unit": "Rs per 10 g",
-   "period": "2026-09",
+   "period": "2026-10",
    "source": "IBJA (ibjarates.com)",
-   "method": "Mean of 21 PM rates"
+   "method": "Mean of 20 PM rates"
   },
   "gold999_month_avg_change_yoy": {
-   "value": 38.1,
-   "display": "+38.1%",
+   "value": 18.7,
+   "display": "+18.7%",
    "unit": "%",
-   "period": "2026-09 against 2025-09",
+   "period": "2026-10 against 2025-10",
    "source": "IBJA (this year); RBI Handbook gold 995, converted to 999 (a year earlier)",
    "method": "Month average against the same month a year earlier"
   },
   "silver999_month_avg": {
-   "value": 230623.0,
-   "display": "₹2,30,623 per kg",
+   "value": 208060.0,
+   "display": "₹2,08,060 per kg",
    "unit": "Rs per kg",
-   "period": "2026-09",
+   "period": "2026-10",
    "source": "IBJA (ibjarates.com)",
-   "method": "Mean of 21 PM rates"
+   "method": "Mean of 20 PM rates"
   },
   "silver999_month_avg_change_yoy": {
-   "value": 78.4,
-   "display": "+78.4%",
+   "value": 33.5,
+   "display": "+33.5%",
    "unit": "%",
-   "period": "2026-09 against 2025-09",
+   "period": "2026-10 against 2025-10",
    "source": "IBJA (this year); RBI Handbook gold 995, converted to 999 (a year earlier)",
    "method": "Month average against the same month a year earlier"
   },
   "wedding_dates_next_3_months": {
-   "value": 20.0,
-   "display": "20 dates",
+   "value": 29.0,
+   "display": "29 dates",
    "unit": "dates",
-   "period": "2026-11 to 2027-01",
+   "period": "2026-12 to 2027-02",
    "source": "Drik Panchang, set to Jaipur",
    "method": "Count of listed dates"
   },
   "wedding_dates_next_3_months_year_earlier": {
-   "value": 17.0,
-   "display": "17 dates",
+   "value": 15.0,
+   "display": "15 dates",
    "unit": "dates",
-   "period": "2025-11 to 2026-01",
+   "period": "2025-12 to 2026-02",
    "source": "Drik Panchang, set to Jaipur",
    "method": "Same months a year earlier"
   }

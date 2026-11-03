@@ -1,4 +1,4 @@
-// Jaipur Café Index v2. Progressive enhancement only: the page is complete without this file.
+// The Café Paper v2. Progressive enhancement only: the page is complete without this file.
 (() => {
   window.__pulse = true;
   const root = document.documentElement;
