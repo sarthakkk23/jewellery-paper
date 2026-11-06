@@ -85,6 +85,8 @@
   // ---------- big figures count up from zero when they arrive; the page's own number is always what's left ----------
   const easeOut = (t) => 1 - Math.pow(2, -10 * t);
   const countUp = (el, delay) => {
+    if (el.dataset.counted) return;               // once only: a late observer must not restart it from a half-counted value
+    el.dataset.counted = "1";
     const node = [...el.childNodes].find((n) => n.nodeType === 3 && n.nodeValue.trim());
     if (!node) return;
     const txt = node.nodeValue, m = txt.trim().match(/^(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?$/);

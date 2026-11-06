@@ -4,7 +4,8 @@
   "snapshot": "2026-11-06"
  },
  "tokens": {
-  "findings": "10"
+  "findings": "10",
+  "gold_share": "59.5"
  },
  "insights": {
   "findings": [
