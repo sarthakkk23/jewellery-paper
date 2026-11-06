@@ -53,18 +53,25 @@ figure { margin: 0; }
 }
 .wordmark { font-size: var(--s-body); font-weight: 600; letter-spacing: -0.01em; text-decoration: none; white-space: nowrap; }
 .bar-links { display: flex; gap: clamp(14px, 2.4vw, 32px); margin-left: auto; font-size: var(--s-small); }
-.bar-links a { text-decoration: none; color: var(--soft); transition: color .2s ease; }
-.bar-links a:hover, .bar-links a[aria-current] { color: var(--ink); }
+.bar-links a { text-decoration: none; color: var(--soft); padding: 6px 0; transition: color .2s ease, background-size .4s var(--ease);
+  background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 2px; }
+.bar-links a:hover, .bar-links a[aria-current] { color: var(--ink); background-size: 100% 2px; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px;
   background: var(--ink); color: var(--paper); font-family: inherit; font-size: var(--s-small); font-weight: 600; text-decoration: none;
-  border: 0; border-radius: 0; cursor: pointer; transition: background .2s ease, transform .2s var(--ease);
+  border: 0; border-radius: 0; cursor: pointer; transition: color .3s ease, transform .2s var(--ease), translate .5s var(--ease);
+  position: relative; isolation: isolate; overflow: hidden; --hv: var(--red); --hc: var(--paper);
 }
-.btn:hover { background: var(--red); }
+/* on hover the second colour sweeps in from the left */
+.btn::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--hv); transform: scaleX(0); transform-origin: right center;
+  transition: transform .5s var(--ease); }
+@media (hover: hover) and (pointer: fine) {
+  .btn:not([disabled]):hover { color: var(--hc); }
+  .btn:not([disabled]):hover::before { transform: scaleX(1); transform-origin: left center; }
+}
+@media (prefers-reduced-motion: reduce) { .btn::before { transition: none; } }
 .btn:active { transform: translateY(1px); }
-.btn-ghost { background: var(--ink); }
-.btn-ghost:hover { background: #000; }
-.bar-links a[aria-current] { text-decoration: underline; text-underline-offset: .35em; text-decoration-thickness: 2px; }
+.btn-ghost { background: var(--ink); --hv: #000; }
 /* phones and small tablets: the menu folds behind one button */
 .menu { display: none; position: relative; margin-left: auto; }
 .menu summary { list-style: none; cursor: pointer; min-height: 44px; display: inline-flex; align-items: center; padding: 0 14px; background: var(--stone); font-size: var(--s-small); font-weight: 600; }
@@ -109,10 +116,8 @@ figure { margin: 0; }
 .hero-num small { font-size: .31em; letter-spacing: 0; margin-left: .04em; vertical-align: top; position: relative; top: .14em; }
 .hero-cap { font-size: var(--s-lead); line-height: 1.25; }
 .hero-meta { font-size: var(--s-small); color: var(--blush); }
-.hero-copy .btn { background: var(--paper); color: var(--ink); }
-.hero-copy .btn:hover { background: var(--blush); }
-.hero-copy .btn-ghost { background: var(--blush); }
-.hero-copy .btn-ghost:hover { background: var(--paper); }
+.hero-copy .btn { background: var(--paper); color: var(--ink); --hv: var(--blush); --hc: var(--ink); }
+.hero-copy .btn-ghost { background: var(--blush); --hv: var(--paper); }
 .hero-obj { grid-area: obj; position: relative; overflow: hidden; background: var(--blush); }
 .relief { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: pan-y; }
 .relief:active { cursor: grabbing; }
@@ -239,7 +244,7 @@ figure { margin: 0; }
 .up-form .field input { width: 100%; height: 56px; font: inherit; font-size: var(--s-body); padding: 0 14px; border: 0; border-radius: 0; background: var(--paper); color: var(--ink); }
 .up-form .field input::placeholder { color: #8d8c87; }
 .up-form .btn { min-height: 56px; padding: 0 24px; background: var(--pink); color: var(--ink); }
-.up-form .btn:hover { background: var(--paper); }
+.up-form .btn { --hv: var(--paper); --hc: var(--ink); }
 .up-note { grid-column: 1 / -1; font-size: var(--s-small); color: var(--stone-2); }
 .up-status { grid-column: 1 / -1; min-height: 1.5em; }
 .up-form.sending .btn { opacity: .6; pointer-events: none; }
@@ -354,7 +359,7 @@ figure { margin: 0; }
 .c-copy { display: grid; gap: 24px; }
 .c-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
 .contact .btn { background: var(--ink); }
-.contact .btn:hover { background: #000; }
+.contact .btn { --hv: #000; }
 .foot { background: var(--ink); color: var(--stone); padding: 72px var(--m) 32px; display: grid; gap: 14px; }
 .foot-name { font-size: var(--s-display-s); line-height: .95; letter-spacing: -0.045em; color: var(--paper); text-decoration: none; margin-bottom: 40px; font-weight: 500; }
 .foot-name:hover { color: var(--pink); }
@@ -665,3 +670,53 @@ figure { margin: 0; }
 .ex-svg { max-height: 300px; }
 @media (max-width: 900px) { .ex-panel { grid-template-columns: 1fr; } .ex-panel .ex-demo { grid-column: 1; grid-row: auto; } }
 .ex-panel[hidden] { display: none; }
+
+/* ---------- motion, second pass: the curtain once, words that rise, a thread that reads with you ---------- */
+.curtain { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  /* the first page of a visit: the name rises on ink, then the curtain lifts. It never blocks a click. */
+  .js:not(.seen) .curtain { display: flex; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center;
+    background: var(--ink); color: var(--pink); pointer-events: none; animation: cur-lift .8s cubic-bezier(.65, 0, .35, 1) 1s both; }
+  .cur-name { display: flex; max-width: none; margin: 0; overflow: hidden; padding-bottom: .12em; font-size: clamp(2rem, 1rem + 4vw, 4.5rem);
+    font-weight: 500; letter-spacing: -0.04em; }
+  .cur-name span { display: inline-block; white-space: pre; animation: cur-in .7s var(--ease) both; animation-delay: calc(.05s + var(--c) * 28ms); }
+  /* the hero waits for the curtain to lift */
+  .js:not(.seen) body:has(.curtain) .hero.is-in .hero-copy > * { transition-delay: 1.1s; }
+  .js:not(.seen) body:has(.curtain) .hero.is-in .hero-copy > :nth-child(2) { transition-delay: 1.25s; }
+  .js:not(.seen) body:has(.curtain) .hero.is-in .hero-copy > :nth-child(3) { transition-delay: 1.4s; }
+  .js:not(.seen) body:has(.curtain) .hero.is-in .hero-pic img { transition-delay: .7s; }
+
+  /* headings rise word by word as they come into view (v2.js splits them) */
+  .motion .split .w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: .16em; margin-bottom: -.16em; }
+  .motion .split .w > span { display: inline-block; transform: translateY(112%); transition: transform .95s var(--ease); transition-delay: calc(var(--k) * 45ms); }
+  .motion .split.in .w > span { transform: none; }
+
+  /* moving between pages: the old page lifts away, the new one settles in; the bar stays put */
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root) { animation: vt-out .3s cubic-bezier(.65, 0, .35, 1) both; }
+  ::view-transition-new(root) { animation: vt-in .55s var(--ease) both; }
+  .bar { view-transition-name: bar; }
+}
+@keyframes cur-lift { to { transform: translateY(-100%); } }
+@keyframes cur-in { from { transform: translateY(112%); } }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-10px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(14px); } }
+
+/* the bar steps aside while you read down, and comes back the moment you scroll up */
+.bar { transition: transform .45s var(--ease); }
+.bar.tuck:not(:focus-within) { transform: translateY(-100%); }
+.motion .sd-pin { transition: top .45s var(--ease); }
+.motion.bar-tucked .sd-pin { top: 0; }
+
+/* links in running text: a quiet underline that firms up on hover */
+main p a:not(.btn) { text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); transition: text-decoration-color .25s ease, text-decoration-thickness .25s ease; }
+@media (hover: hover) and (pointer: fine) { main p a:not(.btn):hover { text-decoration-color: currentColor; text-decoration-thickness: .12em; } }
+
+/* a reading thread along the top, where the browser can link it to the scroll */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    body::before { content: ""; position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60; background: var(--red);
+      transform-origin: 0 50%; transform: scaleX(0); animation: thread linear both; animation-timeline: scroll(root); }
+  }
+}
+@keyframes thread { to { transform: scaleX(1); } }

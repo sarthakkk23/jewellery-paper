@@ -29,6 +29,98 @@
     requestAnimationFrame(() => requestAnimationFrame(() => document.querySelector(".hero")?.classList.add("is-in")));
   } else showAll();
 
+  // ---------- watch: run once when an element comes into view. If the observer never reports, run anyway; never a gate ----------
+  const watch = (els, onIn, margin = "0px 0px -8% 0px") => {
+    if (!els.length) return;
+    if (!motion) { els.forEach(onIn); return; }
+    let alive = false;
+    setTimeout(() => { if (!alive) els.forEach(onIn); }, 2000);
+    const io = new IntersectionObserver((es) => {
+      alive = true;
+      es.forEach((e) => { if (e.isIntersecting) { onIn(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: margin });
+    els.forEach((t) => io.observe(t));
+  };
+  const curtain = !!document.querySelector(".curtain") && !root.classList.contains("seen");
+
+  // ---------- headings rise word by word: each word in a clipped span, the text itself unchanged ----------
+  if (motion) {
+    const heads = [...document.querySelectorAll("main h2")].filter((h) => !h.closest(".hero"));
+    heads.forEach((h) => {
+      let k = 0;
+      const walk = (node) => [...node.childNodes].forEach((n) => {
+        if (n.nodeType === 1) return walk(n);
+        if (n.nodeType !== 3 || !n.textContent.trim()) return;
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.append(part); return; }
+          const w = document.createElement("span"), i = document.createElement("span");
+          w.className = "w"; i.textContent = part; i.style.setProperty("--k", k++); w.append(i); frag.append(w);
+        });
+        n.replaceWith(frag);
+      });
+      walk(h);
+      h.classList.add("split");
+    });
+    watch(heads, (h) => h.classList.add("in"), "0px 0px -10% 0px");
+  }
+
+  // ---------- big figures count up from zero when they arrive; the page's own number is always what's left ----------
+  const easeOut = (t) => 1 - Math.pow(2, -10 * t);
+  const countUp = (el, delay) => {
+    const node = [...el.childNodes].find((n) => n.nodeType === 3 && n.nodeValue.trim());
+    if (!node) return;
+    const txt = node.nodeValue, m = txt.trim().match(/^(\d{1,3}(?:,\d{3})+|\d+)(\.\d+)?$/);
+    if (!m) return;
+    const dec = m[2] ? m[2].length - 1 : 0, end = parseFloat(txt.replace(/,/g, ""));
+    const fmt = new Intl.NumberFormat("en-US", { useGrouping: m[1].includes(","), minimumFractionDigits: dec, maximumFractionDigits: dec });
+    node.nodeValue = fmt.format(0);
+    setTimeout(() => {
+      const t0 = performance.now(), dur = end < 20 ? 900 : 1400;
+      const tick = (now) => {
+        const p = Math.min(1, (now - t0) / dur);
+        node.nodeValue = p < 1 ? fmt.format(end * easeOut(p)) : txt;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+      setTimeout(() => { node.nodeValue = txt; }, dur + 400);   // if frames stall (a background tab), the real figure still lands
+    }, delay);
+  };
+  if (motion) watch([...document.querySelectorAll(".hero-num, .fd-num")],
+    (n) => countUp(n, n.closest(".hero") ? (curtain ? 1500 : 350) : 150), "0px 0px -8% 0px");
+
+  // ---------- the bar steps aside while you read down, and comes back when you scroll up ----------
+  const topBar = document.querySelector(".bar"), menu = document.querySelector(".menu");
+  if (topBar) {
+    let lastY = scrollY, busy = false;
+    addEventListener("scroll", () => {
+      if (busy) return;
+      busy = true;
+      requestAnimationFrame(() => {
+        const y = scrollY, d = y - lastY;
+        if (Math.abs(d) > 6) {
+          const tuck = d > 0 && y > 240 && !menu?.open;
+          topBar.classList.toggle("tuck", tuck); root.classList.toggle("bar-tucked", tuck);
+          lastY = y;
+        }
+        busy = false;
+      });
+    }, { passive: true });
+  }
+
+  // ---------- the main buttons lean toward the pointer, a little ----------
+  if (motion && matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".hero-copy .btn, .bar .btn").forEach((b) => {
+      b.addEventListener("pointermove", (e) => {
+        const r = b.getBoundingClientRect();
+        const dx = (e.clientX - r.left - r.width / 2) / (r.width / 2), dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+        b.style.translate = `${(dx * 6).toFixed(1)}px ${(dy * 4).toFixed(1)}px`;
+      });
+      b.addEventListener("pointerleave", () => { b.style.translate = ""; });
+    });
+  }
+
   // ---------- the sundial ----------
   const dataEl = document.getElementById("dial-data");
   const dial = document.querySelector(".dial");
