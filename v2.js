@@ -9,10 +9,26 @@
   const NS = "http://www.w3.org/2000/svg";
   const el = (tag, attrs, parent) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); parent && parent.appendChild(n); return n; };
 
+  // ---------- the loader: while the ink is up, entrances wait for it; a click to another page brings the ink back first ----------
+  const loader = document.querySelector(".loader");
+  const lag = loader && getComputedStyle(loader).display !== "none" ? 650 : 0;
+  if (motion && loader) {
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest("a[href]");
+      if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || (a.target && a.target !== "_self") || a.hasAttribute("download")) return;
+      const u = new URL(a.href, location.href);
+      if (u.origin !== location.origin || (u.pathname === location.pathname && u.search === location.search) || /\.(?!html?$)\w+$/.test(u.pathname)) return;
+      e.preventDefault();
+      root.classList.add("leaving");
+      setTimeout(() => { location.href = u.href; }, 480);
+    });
+    addEventListener("pageshow", (e) => { if (e.persisted) root.classList.remove("leaving"); });   // back to a page kept in memory
+  }
+
   // ---------- entrances: heading, then text, then picture; once; never a gate ----------
   const reveals = [...document.querySelectorAll(".reveal")];
   const showAll = () => { reveals.forEach((r) => r.classList.add("is-in")); document.querySelector(".hero")?.classList.add("is-in"); };
-  if (motion) {
+  if (motion) setTimeout(() => {
     let alive = false;
     setTimeout(() => { if (!alive) { root.classList.remove("motion", "js"); showAll(); } }, 2000);
     const io = new IntersectionObserver((es) => {
@@ -27,7 +43,7 @@
     }, { rootMargin: "0px 0px -8% 0px" });
     reveals.forEach((r) => io.observe(r));
     requestAnimationFrame(() => requestAnimationFrame(() => document.querySelector(".hero")?.classList.add("is-in")));
-  } else showAll();
+  }, lag); else showAll();
 
   // ---------- watch: run once when an element comes into view. If the observer never reports, run anyway; never a gate ----------
   const watch = (els, onIn, margin = "0px 0px -8% 0px") => {
@@ -63,7 +79,7 @@
       walk(h);
       h.classList.add("split");
     });
-    watch(heads, (h) => h.classList.add("in"), "0px 0px -10% 0px");
+    setTimeout(() => watch(heads, (h) => h.classList.add("in"), "0px 0px -10% 0px"), lag);
   }
 
   // ---------- big figures count up from zero when they arrive; the page's own number is always what's left ----------
@@ -87,8 +103,51 @@
       setTimeout(() => { node.nodeValue = txt; }, dur + 400);   // if frames stall (a background tab), the real figure still lands
     }, delay);
   };
-  if (motion) watch([...document.querySelectorAll(".hero-num, .fd-num")],
-    (n) => countUp(n, n.closest(".hero") ? (curtain ? 1500 : 350) : 150), "0px 0px -8% 0px");
+  if (motion) watch([...document.querySelectorAll(".hero-num, .fd-num, .tz-num")],
+    (n) => countUp(n, (n.closest(".hero") ? (curtain ? 1500 : 350) : 150) + lag), "0px 0px -8% 0px");
+
+  // ---------- sideways: the row pins to the screen and scrolling down moves it across. Without the script it is a row you swipe ----------
+  const rows = motion ? [...document.querySelectorAll(".hs")] : [];
+  if (rows.length) {
+    let run = 0;
+    const move = () => {
+      run = 0;
+      rows.forEach((r) => {
+        const d = r._d || 0, p = d ? clamp(-r.getBoundingClientRect().top / d) : 0;
+        r._t.style.transform = `translate3d(${(-p * d).toFixed(1)}px, 0, 0)`;
+        r.style.setProperty("--p", p.toFixed(4));
+        r._c.forEach((c) => {                    // each card knows where it sits across the screen, for a little parallax
+          const b = c.getBoundingClientRect();
+          c.style.setProperty("--x", clamp((b.left + b.width / 2) / innerWidth - 0.5, -1, 1).toFixed(3));
+        });
+      });
+    };
+    const fit = () => {
+      rows.forEach((r) => {
+        r.classList.add("hs-on");
+        r._t = r.querySelector(".hs-track"); r._c = [...r._t.children];
+        r.querySelectorAll(".tz-num").forEach((n) => {            // a long figure (US$9.72) shrinks to fit its card
+          n.style.fontSize = "";
+          const room = n.parentElement.clientWidth - parseFloat(getComputedStyle(n.parentElement).paddingLeft) * 2;
+          if (n.scrollWidth > room) n.style.fontSize = `${(parseFloat(getComputedStyle(n).fontSize) * room / n.scrollWidth * 0.96).toFixed(1)}px`;
+        });
+        r._d = Math.max(0, r._t.scrollWidth - r.querySelector(".hs-view").clientWidth);
+        r.style.height = r._d ? `${r._d + r.querySelector(".hs-pin").offsetHeight}px` : "";
+        if (!r._d) r.classList.remove("hs-on");
+      });
+      move();
+    };
+    // a keyboard user tabbing into a card off to the side: scroll the page to where that card is in view
+    rows.forEach((r) => r.addEventListener("focusin", (e) => {
+      const c = e.target.closest(".hs-track > *");
+      if (!c || !r._d) return;
+      scrollTo({ top: r.offsetTop + Math.min(r._d, Math.max(0, c.offsetLeft - 16)), behavior: "auto" });
+    }));
+    addEventListener("scroll", () => { if (!run) run = requestAnimationFrame(move); }, { passive: true });
+    addEventListener("resize", fit);
+    addEventListener("load", fit);
+    fit();
+  }
 
   // ---------- the bar steps aside while you read down, and comes back when you scroll up ----------
   const topBar = document.querySelector(".bar"), menu = document.querySelector(".menu");
