@@ -56,6 +56,16 @@ figure { margin: 0; }
 .bar-links a { text-decoration: none; color: var(--soft); padding: 6px 0; transition: color .2s ease, background-size .4s var(--ease);
   background: linear-gradient(currentColor, currentColor) no-repeat 0 100% / 0 2px; }
 .bar-links a:hover, .bar-links a[aria-current] { color: var(--ink); background-size: 100% 2px; }
+
+/* ---------- family: the three Pink City Papers sites, one click apart ---------- */
+.family { display: flex; gap: 6px; padding: 6px var(--m); background: var(--stone); font-size: .8125rem; overflow-x: auto; scrollbar-width: none; }
+.family::-webkit-scrollbar { display: none; }
+.family a { flex: none; display: inline-flex; align-items: center; min-height: 32px; padding: 0 12px; background: var(--paper); color: var(--soft);
+  font-weight: 600; text-decoration: none; transition: color .2s ease, background-color .2s ease; }
+.family a:hover { color: var(--ink); }
+.family a[aria-current] { background: var(--ink); color: var(--paper); }
+.family .fam-s { display: none; }
+@media (max-width: 560px) { .family .fam-l { display: none; } .family .fam-s { display: inline; } }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px;
   background: var(--ink); color: var(--paper); font-family: inherit; font-size: var(--s-small); font-weight: 600; text-decoration: none;
