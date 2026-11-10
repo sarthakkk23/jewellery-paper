@@ -1,8 +1,11 @@
 /* The Jewellery Paper: the few additions to the café site's stylesheet (v2.css, shared as is).
    Mostly the playbook pages' own content, set in the café playbook's style. */
-.jw-obj { display: flex; align-items: center; background: var(--blush); }
-.jw-obj-in { width: 100%; padding: clamp(24px, 4vw, 56px); }
-.jw-obj-note { font-size: var(--s-small); color: var(--soft); margin-top: 14px; max-width: 44ch; }
+/* the home hero: one photo across the full width, the copy over its left side */
+.jw-hero { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy"; }
+.jw-hero .hero-pic picture { top: 0; height: 100%; }
+.jw-hero .hero-pic img { object-position: 50% 40%; }
+/* the tint deepens behind the copy and lifts over the photo's right side, where there is no text */
+@media (min-width: 901px) { .jw-hero .hero-pic::after { background: linear-gradient(90deg, rgba(74, 26, 20, .72) 0%, rgba(74, 26, 20, .6) 40%, rgba(74, 26, 20, .22) 100%); } }
 .jw-open { padding-top: clamp(40px, 6vw, 88px); }
 .jw-tight { padding-top: 24px; }
 .jw-next { margin-top: 40px; }
