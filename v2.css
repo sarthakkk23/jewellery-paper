@@ -782,3 +782,59 @@ main p a:not(.btn) { text-decoration-color: color-mix(in srgb, currentColor 40%,
 .hs-on .hs-track { will-change: transform; }
 .hs-on .hs-meter { display: block; }
 @media (max-width: 760px) { .hs .tz { width: 84vw; min-height: 0; aspect-ratio: 4 / 5; } .hs-hint { display: none; } }
+
+/* ---------- motion, third pass: the same paper, with more life in it ----------
+   Ink soaks into a statement as you read it. A marker runs under the figures. Each finding slides over the last like a
+   sheet. Photographs develop. Sums add up row by row. The hero's digits roll. The page lifts off its footer.
+   Everything sits under .m3, which the script sets only when motion is welcome and drops if the browser stalls,
+   so without it (no script, reduced motion) nothing here applies and the page is exactly as it was. */
+
+/* a statement inks in, word by word, as it rises through the screen */
+.m3 .m3-ink .iw { opacity: .3; transition: opacity .6s ease; }
+.m3 .m3-ink .iw.on { opacity: 1; }
+
+/* a marker under the figures in running text: money, shares, multiples */
+.mk { --mk: color-mix(in srgb, var(--red) 30%, transparent); }
+.m3 .mk { background: linear-gradient(var(--mk), var(--mk)) 0 92% / 0% 38% no-repeat; transition: background-size 1s var(--ease); }
+.m3 .mk.on { background-size: 100% 38%; }
+
+/* sheets: the next finding (or step) slides over this one, which settles back a shade */
+.m3 .m3-sheet { position: relative; }
+.m3 .m3-sheet::after { content: ""; position: absolute; inset: 0; background: var(--ink); opacity: calc(var(--c, 0) * .07); pointer-events: none; }
+.m3 .m3-bare { background: var(--sheet-bg, var(--paper)); box-shadow: 0 0 0 100vmax var(--sheet-bg, var(--paper)); clip-path: inset(0 -100vmax); }
+.m3 .fd.m3-sheet { clip-path: inset(0 -100vmax); }
+.m3 .fd.m3-sheet::after { box-shadow: 0 0 0 100vmax var(--ink); }
+
+/* photographs develop: from a grey print to full colour as they open */
+.m3 figure.reveal.is-in img, .m3 .hero.is-in .hero-pic img, .m3 .t-photo.rv.in img, .m3 .story-pic.rv.in img { animation: m3-develop 2.2s ease both; }
+@keyframes m3-develop { from { filter: grayscale(1) contrast(1.08); } }
+
+/* the worked sums add up: rows arrive in order, the total last, with the marker under it */
+.m3 .pt.m3-go tbody tr { animation: m3-rise .6s var(--ease) both; animation-delay: calc(var(--r, 0) * 110ms + 150ms); }
+@keyframes m3-rise { from { opacity: 0; transform: translateY(12px); } }
+
+/* the hero's rotating figure: each digit rolls up into place */
+.m3 .rc { display: inline-block; clip-path: inset(-.08em -.3em); }
+.m3 .rc > span { display: inline-block; animation: m3-roll .9s var(--ease) both; animation-delay: calc(var(--c, 0) * 70ms + 80ms); }
+@keyframes m3-roll { from { transform: translateY(112%); } }
+
+/* "How I know" opens to its real height, and its points arrive one after another */
+@supports (interpolate-size: allow-keywords) {
+  .m3 main details { interpolate-size: allow-keywords; }
+  .m3 main details::details-content { block-size: 0; overflow: clip; transition: block-size .5s var(--ease), content-visibility .5s allow-discrete; }
+  .m3 main details[open]::details-content { block-size: auto; }
+}
+.m3 main details[open] li { animation: m3-rise .55s var(--ease) both; }
+.m3 main details[open] li:nth-child(2) { animation-delay: .07s; } .m3 main details[open] li:nth-child(3) { animation-delay: .14s; }
+.m3 main details[open] li:nth-child(4) { animation-delay: .21s; } .m3 main details[open] li:nth-child(n+5) { animation-delay: .28s; }
+
+/* the page lifts off its footer: the footer waits underneath and is uncovered as you reach the end */
+.m3-curtain main { position: relative; z-index: 2; background: var(--paper); }
+.m3-curtain .foot { position: sticky; bottom: 0; z-index: 1; }
+.m3-curtain .foot > * { transform: translateY(calc((1 - var(--f, 1)) * -36px)); opacity: calc(.35 + var(--f, 1) * .65); }
+
+/* a list of rows: the one under the pointer holds, the others step back */
+@media (hover: hover) and (pointer: fine) {
+  .m3 .best-list a > span { transition: opacity .25s ease; }
+  .m3 .best-list:hover li:not(:hover) a > span { opacity: .45; }
+}

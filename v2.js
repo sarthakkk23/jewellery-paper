@@ -365,3 +365,171 @@
     by.forEach((_, id) => { const s = document.getElementById(id); s && so.observe(s); });
   }
 })();
+
+// ---------- motion, third pass: ink that soaks in, a marker under the figures, sheets that slide, sums that add up, digits that roll ----------
+// Its own block, and progressive like the rest: with reduced motion, no observer, or a stalled tab, none of it applies.
+(() => {
+  const root = document.documentElement;
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches || !("IntersectionObserver" in window)) return;
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const span = (cls, text) => { const s = document.createElement("span"); s.className = cls; s.textContent = text; return s; };
+  root.classList.add("m3");
+  let alive = false, wake = () => {};                  // if the observer hasn't reported yet (a tab opened in the background), drop every
+                                                       // "not yet" state so nothing waits on it; the moment it does report, the motion comes back
+  setTimeout(() => { if (!alive) root.classList.remove("m3", "m3-curtain"); }, 2500);
+  const once = (els, fn, margin = "0px 0px -10% 0px") => {
+    if (!els.length) return;
+    const io = new IntersectionObserver((es) => { if (!alive) { alive = true; root.classList.add("m3"); setTimeout(wake, 0); } es.forEach((e) => { if (e.isIntersecting) { fn(e.target); io.unobserve(e.target); } }); }, { rootMargin: margin });
+    els.forEach((t) => io.observe(t));
+  };
+  once([document.body], () => {}, "0px");
+
+  // wrap every match of `re` (one capturing group) in the element's own text; the words themselves are untouched
+  const wrap = (el, re, cls) => {
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT), nodes = [], made = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((n) => {
+      if (!n.nodeValue.trim() || n.parentElement.closest(".ev, .mk, .iw, .btn, svg")) return;
+      const parts = n.nodeValue.split(re);
+      if (parts.length < 2) return;
+      const frag = document.createDocumentFragment();
+      parts.forEach((t, i) => { if (!t) return; if (i % 2) { const s = span(cls, t); made.push(s); frag.append(s); } else frag.append(t); });
+      n.replaceWith(frag);
+    });
+    return made;
+  };
+
+  // ---------- a statement inks in as you read: only one that starts below the first screen ----------
+  const inks = $$("main p.lead").filter((p) => !p.closest(".hero, .ph, .hx, .page-head, .p-head") && p.getBoundingClientRect().top > innerHeight * 0.7)
+    .map((p) => { p.classList.add("m3-ink"); return { p, w: wrap(p, /(\S+)/, "iw"), n: -1 }; });
+
+  // ---------- the marker: money, shares and multiples in running text ----------
+  const FIG = /((?:₹|US\$)\s?\d[\d,]*(?:\.\d+)?|\d[\d,]*(?:\.\d+)?\s?(?:%|×))/;
+  const marked = new Map();
+  $$(".fd-body, .cs-body > p, .rule-row p").forEach((p) => { const m = wrap(p, FIG, "mk"); if (m.length) marked.set(p, m); });
+  once([...marked.keys()], (p) => marked.get(p).forEach((m, i) => setTimeout(() => m.classList.add("on"), 350 + i * 160)), "0px 0px -18% 0px");
+
+  // ---------- the sums: rows in order, then the total with the marker under it ----------
+  once($$("table.pt"), (t) => {
+    const rows = $$("tbody tr", t);
+    rows.forEach((r, i) => r.style.setProperty("--r", i));
+    t.classList.add("m3-go");
+    const b = rows.length > 1 && rows[rows.length - 1].querySelector("td:last-child b");
+    if (b) { b.classList.add("mk"); setTimeout(() => b.classList.add("on"), 650 + rows.length * 110); }
+  }, "0px 0px -15% 0px");
+
+  // ---------- the hero's rotating figure: when it changes, its digits roll in one by one ----------
+  const num = document.querySelector("[data-rot] .hero-num");
+  if (num) {
+    const mo = new MutationObserver(() => {
+      const t = [...num.childNodes].find((n) => n.nodeType === 3 && n.nodeValue.trim());
+      if (!t) return;
+      mo.disconnect();
+      const frag = document.createDocumentFragment();
+      [...t.nodeValue].forEach((ch, i) => { const o = span("rc", ""), s = span("", ch); s.removeAttribute("class"); s.style.setProperty("--c", i); o.append(s); frag.append(o); });
+      t.replaceWith(frag);
+      mo.observe(num, { childList: true });
+    });
+    mo.observe(num, { childList: true });
+  }
+
+  // ---------- sheets: each finding, and each step of a worked example, slides a little under the next ----------
+  const sheets = [];
+  $$(".chapter, .cs-list").forEach((box) => {
+    const kids = $$(":scope > .fd, :scope > .cs-step", box);
+    if (kids.length < 2) return;
+    kids.forEach((el, i) => {
+      el.classList.add("m3-sheet");
+      el.style.zIndex = i + 1;
+      if (getComputedStyle(el).backgroundColor === "rgba(0, 0, 0, 0)") {       // a sheet needs a ground to cover the one beneath
+        let up = el.parentElement, bg = "";
+        while (up && !bg) { const c = getComputedStyle(up).backgroundColor; if (c !== "rgba(0, 0, 0, 0)") bg = c; up = up.parentElement; }
+        if (bg) el.style.setProperty("--sheet-bg", bg);
+        el.classList.add("m3-bare");
+      }
+      if (kids[i + 1]) sheets.push({ el, next: kids[i + 1], c: 0 });
+    });
+  });
+
+  // ---------- the page lifts off its footer (only where the footer follows the page directly, fits on one screen and has no build of its own) ----------
+  const foot = document.querySelector(".foot"), main = document.querySelector("main");
+  const fitCurtain = () => root.classList.toggle("m3-curtain", !!(foot && main && main.nextElementSibling === foot && !foot.querySelector(".blocks") && foot.offsetHeight <= innerHeight));
+  fitCurtain();
+
+  // ---------- the ticker hurries when you scroll, then settles (main site) ----------
+  const track = document.querySelector(".hx-track");
+  const tape = track && track.getAnimations ? track.getAnimations()[0] : null;
+  let lastY = scrollY, vel = 0, rate = 1, tick = 0;
+
+  const update = () => {
+    tick = 0;
+    const vh = innerHeight;
+    inks.forEach((k) => {
+      const r = k.p.getBoundingClientRect();
+      if (r.top > vh * 1.2 && k.n <= 0) return;
+      const lit = Math.round(clamp((vh * 0.9 - r.top) / (r.height + vh * 0.38)) * k.w.length);
+      if (lit === k.n) return;
+      k.n = lit;
+      k.w.forEach((w, i) => w.classList.toggle("on", i < lit));
+    });
+    const lag = Math.min(44, vh * 0.055);
+    sheets.forEach((s) => {
+      const top = s.next.getBoundingClientRect().top;
+      const c = top > vh * 1.1 || top < -vh ? 0 : clamp((vh - top) / vh);
+      if (Math.abs(c - s.c) < 0.004) return;
+      s.c = c;
+      s.el.style.translate = c ? `0 ${(c * lag).toFixed(1)}px` : "";
+      s.el.style.setProperty("--c", c.toFixed(3));
+    });
+    if (foot && main && root.classList.contains("m3-curtain")) {
+      const f = clamp((vh - main.getBoundingClientRect().bottom) / Math.max(1, foot.offsetHeight));
+      foot.style.setProperty("--f", f.toFixed(3));
+    }
+    if (tape) {
+      const y = scrollY;
+      vel = vel * 0.8 + (y - lastY) * 0.2; lastY = y;
+      rate += (1 + Math.min(9, Math.abs(vel) * 0.5) - rate) * 0.12;
+      tape.playbackRate = rate;
+      if (Math.abs(rate - 1) > 0.02 || Math.abs(vel) > 0.1) request();
+    }
+  };
+  const request = () => { if (!tick) tick = requestAnimationFrame(update); };
+  addEventListener("scroll", request, { passive: true });
+  addEventListener("resize", () => { fitCurtain(); request(); });
+  addEventListener("load", () => { fitCurtain(); request(); });
+  wake = () => { fitCurtain(); request(); };
+  request();
+
+  // ---------- guess first: a close guess gets a handful of paper squares (main site) ----------
+  const bits = (from) => {
+    const css = getComputedStyle(root), cols = ["--red", "--pink", "--blush", "--clay", "--stone-2"].map((v) => css.getPropertyValue(v).trim()).filter(Boolean);
+    const cv = document.createElement("canvas"), dpr = Math.min(devicePixelRatio || 1, 2), r = from.getBoundingClientRect();
+    cv.width = innerWidth * dpr; cv.height = innerHeight * dpr;
+    cv.style.cssText = "position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:90";
+    cv.setAttribute("aria-hidden", "true");
+    document.body.append(cv);
+    const ctx = cv.getContext("2d"), ox = (r.left + r.width / 2) * dpr, oy = (r.top + Math.min(r.height, innerHeight) * 0.35) * dpr;
+    const ps = Array.from({ length: 70 }, () => { const a = -Math.PI / 2 + (Math.random() - 0.5) * 2.2, v = (5 + Math.random() * 11) * dpr;
+      return { x: ox + (Math.random() - 0.5) * r.width * 0.5 * dpr, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v, t: Math.random() * 6, vt: (Math.random() - 0.5) * 0.3, s: (6 + Math.random() * 8) * dpr, c: cols[Math.random() * cols.length | 0] }; });
+    const t0 = performance.now();
+    const step = (now) => {
+      const k = (now - t0) / 1900;
+      ctx.clearRect(0, 0, cv.width, cv.height);
+      if (k >= 1) { cv.remove(); return; }
+      ps.forEach((p) => { p.vy += 0.4 * dpr; p.vx *= 0.99; p.x += p.vx; p.y += p.vy; p.t += p.vt;
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.t); ctx.globalAlpha = clamp(2.4 - k * 2.4); ctx.fillStyle = p.c; ctx.fillRect(-p.s / 2, -p.s / 2, p.s, p.s); ctx.restore(); });
+      requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    setTimeout(() => cv.remove(), 2600);
+  };
+  $$(".gq").forEach((c) => {
+    let was = c.classList.contains("shown");
+    new MutationObserver(() => {
+      const now = c.classList.contains("shown");
+      if (now && !was) { const inp = c.querySelector("input"); if (inp && Math.abs(+inp.value - parseFloat(c.dataset.value)) <= 10) bits(c); }
+      was = now;
+    }).observe(c, { attributes: true, attributeFilter: ["class"] });
+  });
+})();
